@@ -84,10 +84,10 @@ public class Translator {
             connection.disconnect();// 断开连接   
             
     		Text text = new Text();
-    		text.setContentBeforeTranslated("people");
-    		text.setContentAfterTranslated(convertJsonResult(result.toString()));
-    		text.setFrom("en");
-    		text.setTo("jp");
+    		text.setContentBeforeTranslated(textToBeTranslated);
+    		text.setContentAfterTranslated(unicode2String(convertJsonResult(result.toString())));
+    		text.setFrom(from);
+    		text.setTo(to);
     		textDao.addTranslateText(text);
     		
         } catch (Exception e) {  
@@ -162,6 +162,24 @@ public class Translator {
 		}  
 	    return utf8text;
 	}
+	
+	public String unicode2String(String unicode) {  
+		   
+	    StringBuffer string = new StringBuffer();  
+	   
+	    String[] hex = unicode.split("\\\\u");  
+	   
+	    for (int i = 1; i < hex.length; i++) {  
+	   
+	        // 转换出每一个代码点  
+	        int data = Integer.parseInt(hex[i], 16);  
+	   
+	        // 追加成string  
+	        string.append((char) data);  
+	    }  
+	   
+	    return string.toString();  
+	} 
 	
 	public String generateSalt() {
 		return String.valueOf(Math.abs(new Random().nextInt()));
