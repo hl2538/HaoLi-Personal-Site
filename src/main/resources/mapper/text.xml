@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haoli.dao.TextDao">
+	<insert id="addTranslateText" parameterType="com.haoli.domain.Text" useGeneratedKeys="true" keyProperty="id">
+		insert into
+			text(
+				`from`,
+				`to`,
+				contentBeforeTranslated,
+				contentAfterTranslated
+			)values(
+				#{from},
+				#{to},
+				#{contentBeforeTranslated},
+				#{contentAfterTranslated}
+			)
+	</insert>
+	
+	<select id="loadTextById" parameterType="java.lang.Integer" resultType="com.haoli.domain.Text">
+		select
+			id,
+			`from`,
+			`to`,
+			contentBeforeTranslated,
+			contentAfterTranslated
+		from 
+			text
+		where
+			id=#{id}
+	</select>
+</mapper>
