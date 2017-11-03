@@ -14,6 +14,7 @@ import net.sf.json.JSONObject;
 
 
 @Service
+
 public class AuthService {
 
 	private static String PRIVATE_TOKEN = "THWo3vygEnjcZJsxDCep";
@@ -56,7 +57,7 @@ public class AuthService {
 	        project.put("description",description);
 	        project.put("createTime",createTime);
 	        System.out.println(project);
-	        
+	        System.out.println(authDao);
 	        authDao.addProject(project);
 		}
 		return "success";

@@ -3,15 +3,14 @@
 <mapper namespace="com.haoli.dao.AuthDao">
     <insert id="addProject" parameterType="java.util.Map" useGeneratedKeys="true" keyProperty="id">
         insert into
-            project
-        (
-			name,
-			description,
-			createTime
-        )values(
-        	#{name},
-        	#{description},
-        	#{createTime}
-        )
+            project(
+				name,
+				description,
+				createTime
+	        )values(
+	        	#{name},
+	        	#{description},
+	        	#{createTime}
+	        )
     </insert>
 </mapper>
