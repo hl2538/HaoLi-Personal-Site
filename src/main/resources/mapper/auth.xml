@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haoli.dao.AuthDao">
+    <insert id="addProject" parameterType="java.util.Map" useGeneratedKeys="true" keyProperty="id">
+        insert into
+            project
+        (
+			name,
+			description,
+			createTime
+        )values(
+        	#{name},
+        	#{description},
+        	#{createTime}
+        )
+    </insert>
+</mapper>

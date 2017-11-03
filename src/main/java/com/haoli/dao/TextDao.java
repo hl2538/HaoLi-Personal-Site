@@ -1,6 +1,5 @@
 package com.haoli.dao;
 
-
 import org.apache.ibatis.annotations.Mapper;
 import com.haoli.domain.Text;
 
