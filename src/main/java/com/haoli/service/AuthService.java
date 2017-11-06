@@ -45,7 +45,6 @@ public class AuthService {
           System.out.println("失败!");  
       } 
 		
-		List<Map> list = new ArrayList<Map>();
 		JSONArray jsonArray=JSONArray.fromObject(result.toString());
 		for(Object param : jsonArray) {
 			JSONObject jsonObj = JSONObject.fromObject(param);
@@ -56,10 +55,8 @@ public class AuthService {
 	        project.put("name",name);
 	        project.put("description",description);
 	        project.put("createTime",createTime);
-	        list.add(project);
+			authDao.addProject(project);
 		}
-		
-		authDao.addProject(list.get(0));
 		return "success";
 		
 	}
