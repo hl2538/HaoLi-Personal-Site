@@ -4,14 +4,12 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.haoli.dao.AuthDao;
-import com.haoli.dao.TextDao;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -61,10 +59,26 @@ public class AuthService {
 		
 	}
 	
-	public static void main(String[] args) {
-		AuthService auth = new AuthService();
-		auth.addProject();
-		
+	public void addApi(Map params) {
+		authDao.add(params);
 	}
+
+	public Map list(Map params) {
+		Map apiInfo = authDao.list(params);
+		Date createTime = new Date();
+		apiInfo.put("header", JSONArray.fromObject(apiInfo.get("header")));
+		apiInfo.put("request", JSONArray.fromObject(apiInfo.get("request")));
+		apiInfo.put("response", JSONArray.fromObject(apiInfo.get("response")));
+		return apiInfo;
+	}
+
+	public void update(Map params) {
+		authDao.update(params);
+	}
+
+	public void delete(Long id) {
+		authDao.delete(id);
+	}
+	
 
 }
