@@ -59,4 +59,38 @@ public class ApiService {
 		}
 		return new PageResult<Map>(total, list);
 	}
+
+	public void addCategory(Map params) {
+		apiDao.addCategory(params);
+	}
+
+	public void updateCategory(Map params) {
+		apiDao.updateCategory(params);
+	}
+
+	public PageResult<Map> pageListCategory(Map params) {
+		Integer pageNo = MapUtil.getInteger(params, "pageNo");
+		Integer pageSize = MapUtil.getInteger(params, "pageSize");
+		if(pageNo != null && pageSize != null) {
+			params.put("start", (pageNo - 1) * pageSize);
+			params.put("limit", pageSize);
+		}
+		Integer total = apiDao.count(params);
+		List<Map> list = null;
+		if(total > 0) {
+			list = apiDao.pageListCategory(params);
+		} else {
+			list = new ArrayList<Map>();
+		}
+		return new PageResult<Map>(total, list);
+	}
+
+	public void deleteCategory(Long id) {
+		apiDao.deleteCategory(id);
+	}
+
+
+	public Long loadCategoryId(String name) {
+		return apiDao.loadCategoryId(name);
+	}
 }

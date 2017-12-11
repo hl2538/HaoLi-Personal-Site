@@ -2,18 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.haoli.dao.ApiDao">
 	
+    
 	<sql id="CommonQuery">
-	    <if test="id != null and id!= '' ">
-            and id=#{id}
-        </if>
         <if test="name != null and name != '' ">
             and name=#{name}
         </if>
         <if test="sys != null and sys != '' ">
         	and sys=#{sys}
         </if>
+        <if test="sysId != null and sysId != '' ">
+        	and sysId=#{sysId}
+        </if>
         <if test="category != null and category != '' ">
             and category=#{category}
+        </if>
+        <if test="categoryId !=null and categoryId !='' ">
+        	and categoryId = #{categoryId}
         </if>
         <if test="startTime != null">
             and createTime <![CDATA[>]]> #{startTime}
@@ -30,7 +34,9 @@
     			name,
     			URI,
     			sys,
+    			sysId,
     			category,
+    			categoryId,
     			remark,
     			header,
     			request,
@@ -40,7 +46,9 @@
     			#{name},
     			#{URI},
     			#{sys},
+    			#{sysId},
     			#{category},
+    			#{categoryId},
     			#{remark},
     			#{header},
     			#{request},
@@ -69,6 +77,8 @@
     	<where>
  		    <include refid="CommonQuery"/>
     	</where>
+    	order by id desc
+	    limit #{start},#{limit}
     </select>
     
     
@@ -79,7 +89,9 @@
     		name = #{name},
     		URI = #{URI},
     		sys = #{sys},
+    		sysId = #{sysId},
     		category = #{category},
+    		categoryId = #{categoryId},
     		remark = #{remark},
     		header = #{header},
     		request = #{request},
@@ -101,5 +113,54 @@
         <where>
 	        <include refid="CommonQuery"/>
 	    </where>
+    </select>
+    
+        
+    <insert id = "addCategory" parameterType = "java.util.Map" useGeneratedKeys="true" keyProperty="id">
+    	insert into
+    		t_api_category(
+    			name,
+    			sysId,
+    			createTime
+    		)values(
+    			#{name},
+    			#{sysId},
+    			now()
+    		)
+    </insert>
+    
+    <update id = "updateCategory" parameterType = "java.util.Map">
+    	update
+    		t_api_category
+    	set
+    		name = #{name},
+    		sysId = #{sysId},
+    		lastUpdateTime = now()
+    	where
+    		id = #{id}
+    </update>
+    
+    <select id = "pageListCategory" parameterType = "java.util.Map" resultType="java.util.Map">
+    	select * 
+    	from
+    		t_api_category
+    	<where>
+    		<include refid = "CommonQuery"/>
+    	</where>
+    	order by id desc
+	    limit #{start},#{limit}
+    </select>
+    
+    <delete id = "deleteCategory" parameterType = "java.lang.Long">
+    	delete from t_api_category where id = #{id}
+    </delete>
+    
+    <select id = "loadCategoryId" parameterType = "java.lang.String" resultType = "java.lang.Long">
+    	select 
+    		id
+    	from
+    		t_api_category
+    	where
+    		name = #{name}
     </select>
 </mapper>
