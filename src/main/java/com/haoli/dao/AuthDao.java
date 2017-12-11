@@ -11,13 +11,5 @@ import com.haoli.domain.Project;
 public interface AuthDao {
 
 	public void addProject(Map project);
-
-	public void add(Map params);
-
-	public Map list(Map params);
-
-	public void update(Map params);
-
-	public void delete(Long id);
 	
 }

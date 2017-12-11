@@ -59,26 +59,4 @@ public class AuthService {
 		
 	}
 	
-	public void addApi(Map params) {
-		authDao.add(params);
-	}
-
-	public Map list(Map params) {
-		Map apiInfo = authDao.list(params);
-		Date createTime = new Date();
-		apiInfo.put("header", JSONArray.fromObject(apiInfo.get("header")));
-		apiInfo.put("request", JSONArray.fromObject(apiInfo.get("request")));
-		apiInfo.put("response", JSONArray.fromObject(apiInfo.get("response")));
-		return apiInfo;
-	}
-
-	public void update(Map params) {
-		authDao.update(params);
-	}
-
-	public void delete(Long id) {
-		authDao.delete(id);
-	}
-	
-
 }
