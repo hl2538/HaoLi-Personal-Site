@@ -3,12 +3,11 @@ function login(){
 		data.accountName = $("#accountName").val();
 		data.password = $("#password").val();
 		$.ajax({
-			url:serverUrl+'user/login',
+			url:'http://localhost:8080/user/login',
 			type: 'POST',
 			data: JSON.stringify(data),
 			contentType: 'application/json',
 			complete: function(response) {
-				console.log(response);
 				if(response.status == 200 || response.status == 201) {
 					var result = JSON.parse(response.responseText);
 					if(result.flag){
