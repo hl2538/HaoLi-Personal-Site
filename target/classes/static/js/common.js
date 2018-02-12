@@ -1,4 +1,4 @@
-var serverUrl = "http://localhost:8080/";
+var serverUrl = "http://localhost:8080";
 var checkSessionTimeOut = (function () {
 	try{
 		$("body").on("click","*",function() {

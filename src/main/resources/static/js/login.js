@@ -1,9 +1,9 @@
 function login(){
 		var data = {};
-		data.accountName = $("#accountName").val();
+		data.loginName = $("#loginName").val();
 		data.password = $("#password").val();
 		$.ajax({
-			url:'http://localhost:8080/user/login',
+			url: serverUrl+ '/user/login',
 			type: 'POST',
 			data: JSON.stringify(data),
 			contentType: 'application/json',

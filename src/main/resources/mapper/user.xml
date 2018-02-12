@@ -2,22 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.haoli.dao.UserDao">
 
-	<sql id="CommonQuery">
-        <if test="accnoutName != null and accountName != '' ">
-            and accountName=#{accountName}
-        </if>
-        <if test="password != null and password != '' ">
-        	and password=#{password}
-       	</if>
-    </sql>
-    
-   <select id="login" parameterType = "java.util.Map"  resultType="java.lang.String">
-	   	select password
-	   	from 
-	   		t_user
-		where
-			accountName = #{accountName}
-   </select>
-    
+    <select id = "selectUserByLoginName" parameterType="java.util.Map" resultType = "com.haoli.domain.User">
+    	select *
+    	from
+    		user
+    	where
+    		loginName = #{loginName}
+    </select>
     
 </mapper>
