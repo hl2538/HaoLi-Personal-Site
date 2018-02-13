@@ -10,4 +10,19 @@
     		loginName = #{loginName}
     </select>
     
+    <insert id="addUser" parameterType = "com.haoli.domain.User" >
+    	insert into
+    		user(
+    			loginName,
+    			password,
+    			nickName,
+				email    			
+    		)values(
+    			#{loginName},
+    			#{password},
+    			#{nickName},
+    			#{email}
+    		)
+    </insert>
+    
 </mapper>

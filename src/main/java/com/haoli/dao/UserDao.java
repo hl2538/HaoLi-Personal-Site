@@ -13,5 +13,7 @@ public interface UserDao {
 	public String login(Map params);
 
 	public User selectUserByLoginName(Map params);
+
+	public int addUser(User user);
 	
 }

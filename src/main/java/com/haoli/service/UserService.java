@@ -19,4 +19,8 @@ public class UserService {
 		else return false;
 	}
 
+	public int register(User user) {
+		return userDao.addUser(user);
+	}
+
 }
