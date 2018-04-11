@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.haoli.domain.JsonResponse;
 import com.haoli.domain.User;
-import com.haoli.sdk.JsonResponse;
 import com.haoli.service.UserService;
 
 @RestController
@@ -34,7 +34,6 @@ public class UserController {
 		userService.register(user);
 		return JsonResponse.success("register succeed");
 	}
-
-
+	String formatDate = "SELECT * FROM (SELECT A.*, ROWNUM RN FROM (SELECT * FROM temp1 UNION ALL temp2)A WHERE ROWNUM <=?)WHERE RN > ?";
 	
 }

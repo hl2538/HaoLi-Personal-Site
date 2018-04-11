@@ -1,4 +1,4 @@
-package com.haoli.sdk;
+package com.haoli.domain;
 
 public class JsonResponse<T> {
 
