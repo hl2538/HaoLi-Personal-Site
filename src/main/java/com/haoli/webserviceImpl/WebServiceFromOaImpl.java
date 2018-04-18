@@ -1,13 +1,13 @@
-package com.boe.middleware.webserviceImpl;
+package com.haoli.webserviceImpl;
 
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import org.springframework.stereotype.Component;
 
-import com.boe.middleware.webservice.WebServiceFromOa;
 import com.haoli.domain.JsonResponse;
 import com.haoli.domain.OaApprovalRequest;
+import com.haoli.webservice.WebServiceFromOa;
 
 
 @WebService(serviceName = "WebServiceFromOae",//服务名

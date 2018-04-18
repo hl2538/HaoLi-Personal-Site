@@ -7,7 +7,8 @@ import org.apache.cxf.jaxws.EndpointImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import com.boe.middleware.webservice.WebServiceFromOa;
+
+import com.haoli.webservice.WebServiceFromOa;
 
 @Configuration
 public class OaWebServiceConfig {

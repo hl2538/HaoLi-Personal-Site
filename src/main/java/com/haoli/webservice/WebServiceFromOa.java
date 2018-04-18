@@ -1,4 +1,4 @@
-package com.boe.middleware.webservice;
+package com.haoli.webservice;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
