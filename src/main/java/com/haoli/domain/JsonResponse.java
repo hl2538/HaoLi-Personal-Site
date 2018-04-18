@@ -1,5 +1,6 @@
 package com.haoli.domain;
 
+
 public class JsonResponse<T> {
 
 	private String code;
@@ -12,9 +13,9 @@ public class JsonResponse<T> {
 		
 	}
 	
-	public JsonResponse(T data){
-		this.code = "0";
-		this.msg = "成功";
+	public JsonResponse(T data,String code,String msg){
+		this.code = code;
+		this.msg = msg;
 		this.data = data;
 	}
 	
@@ -23,26 +24,16 @@ public class JsonResponse<T> {
 		this.msg = msg;
 	}
 	
+	
 	public boolean isSuccess(){
 		return "0".equals(this.code);
 	}
 	
-	public static JsonResponse<String> success(){
-		return new JsonResponse<String>(null);
+	public static JsonResponse<String> success(String code, String msg){
+		return new JsonResponse<String>(code, msg);
 	}
 	
-	public static JsonResponse<String> success(String data){
-		return new JsonResponse<String>(data);
-	}
-	
-	public static JsonResponse<String> fail(){
-		return new JsonResponse<String>("1", "fail");
-	}
-	
-	public static JsonResponse<String> fail(String msg){
-		return new JsonResponse<String>("1", msg);
-	}
-	
+
 	public static JsonResponse<String> fail(String code, String msg){
 		return new JsonResponse<String>(code, msg);
 	}
