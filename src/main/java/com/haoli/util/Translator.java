@@ -1,4 +1,4 @@
-package com.haoli.tool;
+package com.haoli.util;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
