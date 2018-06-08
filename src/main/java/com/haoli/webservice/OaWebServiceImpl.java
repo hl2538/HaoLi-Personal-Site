@@ -8,12 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import com.alibaba.fastjson.JSONObject;
-import com.boe.middleware.domain.JsonResponse;
-import com.boe.middleware.domain.OaApprovalRequest;
-import com.boe.middleware.domain.OaApprovalResponse;
-import com.boe.middleware.util.HTTPUtil;
-import com.boe.middleware.util.JsonUtil;
-import com.boe.middleware.webservice.OaWebService;
+
 
 
 @WebService(serviceName = "OaWebService",//服务名

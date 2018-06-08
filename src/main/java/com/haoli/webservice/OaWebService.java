@@ -6,9 +6,7 @@ import javax.jws.WebService;
 
 import org.springframework.stereotype.Component;
 
-import com.boe.middleware.domain.JsonResponse;
-import com.boe.middleware.domain.OaApprovalRequest;
-import com.boe.middleware.domain.OaApprovalResponse;
+
 
 @WebService
 public interface OaWebService {
