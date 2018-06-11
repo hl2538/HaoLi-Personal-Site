@@ -26,8 +26,8 @@
   	<dependencies>
   	
 		<dependency>
-		    <groupId>plotDis</groupId>
-		    <artifactId>plotDis</artifactId>
+		    <groupId>plotDisData</groupId>
+		    <artifactId>plotDisData</artifactId>
 		    <version>1.0</version>
 		</dependency>
 		
